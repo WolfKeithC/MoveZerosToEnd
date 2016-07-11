@@ -2,10 +2,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.sql.*;
+import NET.webserviceX.www.*;
+import java.io.*;
 
 public class MoveZerosToEndMain {
 
+	//@WebServiceRef(wsdlLocation="http://www.webservicex.com/globalweather.asmx?WSDL")
+	//static GlobalWeather gw;
+	
 	public static void main(String[] args) {
 		System.out.println("Hello, this is Keith Wolf. Welcome to my first JAVA app at Disney.");
 		
@@ -16,6 +20,54 @@ public class MoveZerosToEndMain {
 		DisplayArray(arr02);
 		System.out.println();
 		ConnectAndDisplayDatabase();
+		System.out.println("------");			
+		String cities = "";
+		GlobalWeatherLocator gwl = new GlobalWeatherLocator();
+		GlobalWeatherSoap port = null;
+		try
+		{
+			port = gwl.getGlobalWeatherSoap();
+			cities = port.getCitiesByCountry("United States");
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("------");
+		
+		try (PrintStream out = new PrintStream(new FileOutputStream("c:\\temp\\cities.xml"))) {
+		    out.print(cities);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("------");
+		
+		try
+		{
+			if(port != null)
+			{	
+				String cityWeather = port.getWeather("Lihue, Lihue Airport", "United States");
+				System.out.println(cityWeather);
+			}
+			else
+			{
+				System.out.println("empty weather");
+			}				
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		//System.out.print(cities);
+		System.out.println("------");
+		/*
+		for(int i=0;i<cities.length;i++)
+		{
+			
+		}
+		*/
 	}
 	
 	public static void DisplayArray(int[] arr){
