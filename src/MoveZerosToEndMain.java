@@ -2,7 +2,7 @@
 public class MoveZerosToEndMain {
 
 	public static void main(String[] args) {
-		System.out.println("Hello, this is Keith. Welcome to my first JAVA app at Disney.");
+		System.out.println("Hello, this is Keith Wolf. Welcome to my first JAVA app at Disney.");
 		
 		int[] arr01 = {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0};
 		DisplayArray(arr01);
