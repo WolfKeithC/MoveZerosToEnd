@@ -2,6 +2,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.*;
+
 import NET.webserviceX.www.*;
 import java.io.*;
 
@@ -68,6 +74,57 @@ public class MoveZerosToEndMain {
 			
 		}
 		*/
+		
+		//XML file
+		try
+		{		
+			File inputFile = new File("c:\\temp\\cities.xml");
+	        DocumentBuilderFactory dbFactory 
+	           = DocumentBuilderFactory.newInstance();
+	        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+	        Document doc = dBuilder.parse(inputFile);
+	        doc.getDocumentElement().normalize();
+	         System.out.println("Root element :" 
+	            + doc.getDocumentElement().getNodeName());
+	         NodeList nList = doc.getElementsByTagName("Table");
+	         System.out.println("----------------------------");
+	         for (int temp = 0; temp < nList.getLength(); temp++) {
+	        	 System.out.println();
+	            Node nNode = nList.item(temp);
+	            //System.out.println("\nCurrent Element :" + nNode.getNodeName());
+	            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+	               Element eElement = (Element) nNode;
+	               //System.out.println("Student roll no : " + eElement.getAttribute("rollno"));
+	               System.out.println("Country : " 
+	                  + eElement
+	                  .getElementsByTagName("Country")
+	                  .item(0)
+	                  .getTextContent());
+	               System.out.println("City : " 
+	               + eElement
+	                  .getElementsByTagName("City")
+	                  .item(0)
+	                  .getTextContent());
+	               /*
+	               System.out.println("Nick Name : " 
+	               + eElement
+	                  .getElementsByTagName("nickname")
+	                  .item(0)
+	                  .getTextContent());
+	               System.out.println("Marks : " 
+	               + eElement
+	                  .getElementsByTagName("marks")
+	                  .item(0)
+	                  .getTextContent());
+	               */   
+	            }
+	         }
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("------");
 	}
 	
 	public static void DisplayArray(int[] arr){
