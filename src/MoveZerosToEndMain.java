@@ -12,9 +12,6 @@ import NET.webserviceX.www.*;
 import java.io.*;
 
 public class MoveZerosToEndMain {
-
-	//@WebServiceRef(wsdlLocation="http://www.webservicex.com/globalweather.asmx?WSDL")
-	//static GlobalWeather gw;
 	
 	public static void main(String[] args) {
 		System.out.println("Hello, this is Keith Wolf. Welcome to my first JAVA app at Disney.");
@@ -66,14 +63,7 @@ public class MoveZerosToEndMain {
 			e.printStackTrace();
 		}
 		
-		//System.out.print(cities);
 		System.out.println("------");
-		/*
-		for(int i=0;i<cities.length;i++)
-		{
-			
-		}
-		*/
 		
 		//XML file
 		try
