@@ -42,6 +42,12 @@ public class MoveZerosToEndMain {
 		
 		System.out.println("------");
 		
+		System.out.printf("GetMissing: %d", FindNumbers.GetMissing(new int[] { 9,2,3,4,1,2 } ));
+		System.out.println();
+		System.out.println("NumbersDivisibleBy: " + FindNumbers.NumbersDivisibleBy(new int[] { 108 }));
+		
+		System.out.println("------");
+		
 		try (PrintStream out = new PrintStream(new FileOutputStream("c:\\temp\\cities.xml"))) {
 		    out.print(cities);
 		}
