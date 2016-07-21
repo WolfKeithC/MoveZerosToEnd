@@ -65,6 +65,20 @@ public class MoveZerosToEndMain {
 		
 		System.out.println("------");
 		
+		String strTest = "tacocat";
+		
+		boolean isPalindrome = Palindrome.TestString(strTest);
+		System.out.printf("Is %s a Palindrome? %s. It took %d cycles.", strTest, isPalindrome, Palindrome.Count()); 
+		System.out.println("");
+		
+		strTest = "cat";
+		Palindrome.Reset();
+		isPalindrome = Palindrome.TestString(strTest);
+		System.out.printf("Is %s a Palindrome? %s. It took %d cycles.", strTest, isPalindrome, Palindrome.Count());
+		System.out.println("");
+		System.out.println("------");
+		
+		/*
 		//XML file
 		try
 		{		
@@ -106,13 +120,15 @@ public class MoveZerosToEndMain {
 	                  .getElementsByTagName("marks")
 	                  .item(0)
 	                  .getTextContent());
-	               */   
+	               */
+		/*
 	            }
 	         }
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		*/
 		
 		System.out.println("------");
 	}
