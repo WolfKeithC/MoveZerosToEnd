@@ -2,13 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
-import javax.xml.bind.JAXBElement;
-import XYTECH.org.datacontract.schemas._2004._07.xytech_mp.ObjectFactory;
 import NET.webserviceX.www.*;
-import XYTECH.org.datacontract.schemas._2004._07.xytech_mp.APIResult;
-import XYTECH.org.datacontract.schemas._2004._07.xytech_mp.Credentials;
-
 import java.io.*;
 
 public class MoveZerosToEndMain {
@@ -39,34 +33,8 @@ public class MoveZerosToEndMain {
 		System.out.println("------");
 		
 		try
-		{		
-			XYTECH.com.xytechsystems.xytechapi.API_Service apiService = new XYTECH.com.xytechsystems.xytechapi.API_Service();
-			XYTECH.com.xytechsystems.xytechapi.API xytAPI = apiService.getBasicHttpBindingAPI();		
-			Credentials xytCred = new Credentials();
-						
-			ObjectFactory factory01 = new ObjectFactory();
-			JAXBElement<String> createDBName = factory01.createCredentialsDBName("CNG_MEDIAPULSE_QA");
-			xytCred.setDBName(createDBName);
-			
-			ObjectFactory factory02 = new ObjectFactory();
-			JAXBElement<String> createUserId = factory02.createCredentialsUserID("xytech");
-			xytCred.setUserID(createUserId);
-			
-			ObjectFactory factory03 = new ObjectFactory();
-			JAXBElement<String> createPassword = factory03.createCredentialsPassword("xytechpw");
-			xytCred.setPassword(createPassword);
-			
-			ObjectFactory factory04 = new ObjectFactory();
-			JAXBElement<String> createSecurityToken = factory04.createCredentialsUserID("");
-			xytCred.setSecurityToken(createSecurityToken);
-			
-			APIResult xytResults = xytAPI.testCredentials(xytCred);
-			/*
-			JAXBElement<String> jMsg = xytResults.getMessage(); 
-			String apiMsg = jMsg.getValue();
-			*/
-			System.out.printf("Xytech Response Credentials result: %s %s", xytResults.isSuccess().toString(), xytResults.getMessage().getValue());
-			System.out.println();
+		{
+			XytechHelper.MakeAPICall();
 		}
 		catch(Exception e) {
 			e.printStackTrace();
