@@ -78,7 +78,6 @@ public class MoveZerosToEndMain {
 		System.out.println("");
 		System.out.println("------");
 		
-		/*
 		//XML file
 		try
 		{		
@@ -121,14 +120,12 @@ public class MoveZerosToEndMain {
 	                  .item(0)
 	                  .getTextContent());
 	               */
-		/*
 	            }
 	         }
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-		*/
 		
 		System.out.println("------");
 	}
